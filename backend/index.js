@@ -45,6 +45,8 @@ app.post('/api/login', (req, res) => {
         }
         if (result.length > 0) {
             return res.json({ success: true, message: 'connexion reussis', user: result[0]})
+        }else{
+            return res.status(401).json({success:false, message:'email ou mot de passe incorect'})
         }
     })
 })
